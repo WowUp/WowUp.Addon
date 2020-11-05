@@ -1,0 +1,11 @@
+## Interface: 90001
+## Title: WowUp.Addon
+## Notes: Receive notifications from WowUp after starting the game or reloading your interface
+## Author: Linaori
+## Version: 0.0.1
+## DefaultState: enabled
+## SavedVariables: WowUpAddonInformation
+
+localization.lua
+data.lua
+main.lua
