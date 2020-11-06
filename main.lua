@@ -7,7 +7,7 @@ local WowUpOptions = {
     ['showChatNotification'] = true,
 }
 
-SLASH_WOWUP1 = '/wowup'
+SLASH_WOWUP1 = addonManagerNameSlashCommand
 
 local FixOptions = function (overwriteToDefault)
     for optionName, optionDefaultValue in pairs(WowUpOptions) do
@@ -19,7 +19,8 @@ end
 
 function SlashCmdList.WOWUP(msg)
     if msg == '' then
-        return print(WowUpTexts.slashCommandNoArguments)
+        local n = addonManagerNameSlashCommand;
+        return print(format(WowUpTexts.slashCommandNoArguments, n, n, n))
     end
 
     local matches = {}
@@ -79,12 +80,12 @@ function frame:OnEvent(event, addonName)
     FixOptions(false);
 
     -- show notification
-    local message = format(WowUpTexts.updateNotification, updatesAvailableCount)
+    local message = format(WowUpTexts.updateNotification, addonManagerName, updatesAvailableCount)
     if WowUpAddonInformation.showChatNotification then
         if updatesAvailableCount > 0 then
             print(message)
         else
-            print(WowUpTexts.noUpdatesNotification)
+            print(format(WowUpTexts.noUpdatesNotification, addonManagerName))
         end
     end
 

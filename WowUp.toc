@@ -1,8 +1,8 @@
 ## Interface: 90001
-## Title: WowUp.Addon
-## Notes: Receive notifications from WowUp after starting the game or reloading your interface
+## Title: Addon Update Notifications (by WowUp)
+## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori
-## Version: 0.0.1
+## Version: 0.0.2
 ## DefaultState: enabled
 ## SavedVariables: WowUpAddonInformation
 
