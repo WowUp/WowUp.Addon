@@ -9,3 +9,4 @@
 localization.lua
 data.lua
 main.lua
+ui_elements.xml

@@ -7,8 +7,6 @@ local WowUpOptions = {
     ['showChatNotification'] = true,
 }
 
-SLASH_WOWUP1 = addonManagerNameSlashCommand
-
 local FixOptions = function (overwriteToDefault)
     for optionName, optionDefaultValue in pairs(WowUpOptions) do
         if overwriteToDefault or WowUpAddonInformation[optionName] == nil then
@@ -17,51 +15,12 @@ local FixOptions = function (overwriteToDefault)
     end
 end
 
-function SlashCmdList.WOWUP(msg)
-    if msg == '' then
-        local n = addonManagerNameSlashCommand;
-        return print(format(WowUpTexts.slashCommandNoArguments, n, n, n))
-    end
+WowUpOptionsFrame = nil;
+showPopupNotificationCheckbox = nil
+showChatNotificationCheckbox = nil
 
-    local matches = {}
-    local i = 0
-    for match in msg:gmatch('%S+') do
-        i = i + 1
-        matches[i] = match
-    end
-
-    if matches[1] == 'list' then
-        print(WowUpTexts.slashCommandExplainList)
-        for k in pairs(WowUpOptions) do
-            print(' - ' .. k)
-        end
-        return
-    elseif matches[1] == 'reset' then
-        FixOptions(true);
-        print(WowUpTexts.slashCommandOptionReset)
-        return
-    end
-
-    for optionName in pairs(WowUpOptions) do
-        if optionName == matches[1] then
-            if matches[2] == '1' then
-                WowUpAddonInformation[optionName] = true
-                print(format(WowUpTexts.slashCommandOptionEnabled, optionName))
-            elseif matches[2] == '0' then
-                WowUpAddonInformation[optionName] = false
-                print(format(WowUpTexts.slashCommandOptionDisabled, optionName))
-            else
-                local displayValue = '1'
-                if (WowUpAddonInformation[optionName] == false) then
-                    displayValue = '0'
-                end
-                print(format(WowUpTexts.slashCommandOptionValue, optionName, displayValue))
-            end
-            return
-        end
-    end
-
-    return print(WowUpTexts.slashCommandInvalidArguments)
+SLASH_WOWUP1 = addonManagerNameSlashCommand
+function SlashCmdList.WOWUP()
 end
 
 local frame = CreateFrame('frame')
@@ -78,6 +37,9 @@ function frame:OnEvent(event, addonName)
     end
 
     FixOptions(false);
+
+    showChatNotificationCheckbox:SetChecked(WowUpAddonInformation.showChatNotification)
+    showPopupNotificationCheckbox:SetChecked(WowUpAddonInformation.showPopupNotification)
 
     -- show notification
     local message = format(WowUpTexts.updateNotification, addonManagerName, updatesAvailableCount)
@@ -104,3 +66,31 @@ function frame:OnEvent(event, addonName)
 end
 
 frame:SetScript('OnEvent', frame.OnEvent);
+
+function showPopupNotificationCheckbox_OnLoad(checkbox)
+    checkbox.type = CONTROLTYPE_CHECKBOX
+    checkbox.Text:SetText(' ' .. WowUpTexts.showPopupNotificationCheckboxText);
+    checkbox:SetHitRectInsets(0, -(checkbox.Text:GetWidth() + 20), 0, 0)
+    showPopupNotificationCheckbox = checkbox
+end
+
+function showChatNotificationCheckbox_OnLoad(checkbox)
+    checkbox.type = CONTROLTYPE_CHECKBOX
+    checkbox.Text:SetText(' ' .. WowUpTexts.showChatNotificationCheckboxText);
+    checkbox:SetHitRectInsets(0, -(checkbox.Text:GetWidth() + 20), 0, 0)
+    showChatNotificationCheckbox = checkbox
+end
+
+function showPopupNotificationCheckbox_OnClick(checkbox)
+    WowUpAddonInformation.showPopupNotification = checkbox:GetChecked()
+end
+
+function showChatNotificationCheckbox_OnClick(checkbox)
+    WowUpAddonInformation.showChatNotification = checkbox:GetChecked()
+end
+
+function WowUpOptionsPanel_OnLoad(optionsFrame)
+    optionsFrame.name = addonManagerName .. ' Notifications'
+    InterfaceOptions_AddCategory(optionsFrame);
+    WowUpOptionsFrame = optionsFrame
+end

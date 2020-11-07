@@ -1,0 +1,37 @@
+<Ui>
+    <Frame name="WowUpOptionsPanel">
+        <Scripts>
+            <OnLoad>WowUpOptionsPanel_OnLoad(self);</OnLoad>
+        </Scripts>
+        <Frames>
+            <CheckButton name="showPopupNotificationCheckbox" inherits="InterfaceOptionsCheckButtonTemplate" tooltip="test">
+                <Scripts>
+                    <OnLoad>showPopupNotificationCheckbox_OnLoad(self);</OnLoad>
+                    <OnClick>showPopupNotificationCheckbox_OnClick(self);</OnClick>
+                </Scripts>
+                <Size x="27" y="30"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent">
+                        <Offset>
+                            <AbsDimension x="20" y="-20" />
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </CheckButton>
+            <CheckButton name="showChatNotificationCheckbox" inherits="InterfaceOptionsCheckButtonTemplate" tooltip="test">
+                <Scripts>
+                    <OnLoad>showChatNotificationCheckbox_OnLoad(self);</OnLoad>
+                    <OnClick>showChatNotificationCheckbox_OnClick(self);</OnClick>
+                </Scripts>
+                <Size x="27" y="30"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent">
+                        <Offset>
+                            <AbsDimension x="20" y="-45" />
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+            </CheckButton>
+        </Frames>
+    </Frame>
+</Ui>
