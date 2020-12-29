@@ -6,7 +6,12 @@
 ## DefaultState: enabled
 ## SavedVariables: WowUpAddonInformation
 
-localization.lua
+libs/LibStub/LibStub.lua
+libs/AceLocale-3.0/AceLocale-3.0.lua
+
+locals/enUS.lua
+locals/deDE.lua
+locals/ruRU.lua
+
 data.lua
 main.lua
-ui_elements.xml
