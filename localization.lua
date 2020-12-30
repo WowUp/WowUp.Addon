@@ -12,3 +12,9 @@ if locale == 'ruRU' then
     WowUpTexts.updateNotification = 'Уведомление от %s: У вас есть %d модификаций нуждающихся в обновлении'
     WowUpTexts.noUpdatesNotification = 'Уведомление от %s: модификации не требуют обновления'
 end
+
+if locale == 'deDE' then
+    WowUpTexts.Okay = 'Okay'
+    WowUpTexts.updateNotification = '%s Hinweis: Du hast %d Addon(s), die aktualisiert werden können. Öffne WowUp um deine Addons zu aktualisieren.'
+    WowUpTexts.noUpdatesNotification = '%s Hinweis: Alle deine Addons sind auf dem neusten Stand.'
+end
