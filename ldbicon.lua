@@ -15,12 +15,12 @@ end
 
 do
     function plugin.OnEnter(self)
-        local r, g, b, row = unpack(WOWUP.addonManagerColorRGB)
+        local r, g, b, row = unpack(WOWUP_DATA.addonManagerColorRGB)
         local tooltip = WOWUP.LibQTip:Acquire(addonName .. "Tooltip", 5)
         self.tooltip = tooltip 
 
         local header = WOWUP.CreateRGBToHexHeader(r, g, b)
-        local availableAddonUpdates = CountTable(WOWUP.updateAddonsList)
+        local availableAddonUpdates = CountTable(WOWUP_DATA.updateAddonsList)
         tooltip:AddHeader(header)
         tooltip:SetCell(tooltip:GetLineCount(), 1, header, nil, nil, tooltip:GetColumnCount())
         tooltip:AddSeparator(2, 1, 1, 1, 0)
@@ -29,9 +29,9 @@ do
             local ttText = availableAddonUpdates > 1 and L["You have %d addons to be updated"]:format(availableAddonUpdates) or L["You have 1 addon to be updated"]
             tooltip:SetCell(tooltip:GetLineCount(), 1, ttText, nil, nil, tooltip:GetColumnCount())
             -- add a list of addons if a list ist there
-            if WOWUP.updateAddonsList then
+            if WOWUP_DATA.updateAddonsList then
                 tooltip:AddSeparator(5, 1, 1, 1, 0)
-                for k, v in pairs(WOWUP.updateAddonsList) do
+                for k, v in pairs(WOWUP_DATA.updateAddonsList) do
                     if type(v) == "table" then
                         row = tooltip:AddLine(k, v[1] and v[1] or " ", "->", v[2] and v[2] or " ", " ")
                         tooltip:SetCellTextColor(row, 1, 1, 1, 1, 1)

@@ -93,8 +93,8 @@ local function SetUpSettings()
     InterfaceOptions_AddCategory(MainFrame)
     
     -- create slash commands
-    if WOWUP.addonManagerNameSlashCommand then
-        _G["SLASH_WOWUP1"] = WOWUP.addonManagerNameSlashCommand
+    if WOWUP_DATA.addonManagerNameSlashCommand then
+        _G["SLASH_WOWUP1"] = WOWUP_DATA.addonManagerNameSlashCommand
 
         SlashCmdList["WOWUP"] = function()
             -- need to call it twice, due to a blizzard bug
