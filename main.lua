@@ -6,17 +6,17 @@ local function frame_OnEvent(self, event, ...)
     -- init addon
     WOWUP.SetUpSettings()
 
-    local r, g, b = unpack(WOWUP.addonManagerColorRGB)
-    local availableAddonUpdates = CountTable(WOWUP.updateAddonsList)
+    local r, g, b = unpack(WOWUP_DATA.addonManagerColorRGB)
+    local availableAddonUpdates = CountTable(WOWUP_DATA.updateAddonsList)
     local message = (availableAddonUpdates > 1 and L["You have %d addons to be updated"] or L["You have %d addon to be updated"]):format(availableAddonUpdates)    -- show notification
     local header = WOWUP.CreateRGBToHexHeader(r, g, b)
 
     if WowUpAddonInformation.showChatNotification then
-        print(WOWUP.updateAddonsList, availableAddonUpdates)
+        print(WOWUP_DATA.updateAddonsList, availableAddonUpdates)
         if availableAddonUpdates > 0 then
             DEFAULT_CHAT_FRAME:AddMessage(header .. ": " .. message)
-            if WowUpAddonInformation.showChatNotificationList and WOWUP.updateAddonsList then
-                for k, v in pairs(WOWUP.updateAddonsList) do
+            if WowUpAddonInformation.showChatNotificationList and WOWUP_DATA.updateAddonsList then
+                for k, v in pairs(WOWUP_DATA.updateAddonsList) do
                     if type(v) == "table" then
                         local addonLine = k .. ": "-- add AddonName
                         addonLine = addonLine .. WOWUP.CreateRGBToHex(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b) .. (v[1] and v[1] or " ") .. "|r " -- current version
@@ -35,7 +35,7 @@ local function frame_OnEvent(self, event, ...)
         data.Text = header
         if WowUpAddonInformation.showChatNotificationList then
             local addonUpdateList = "\n\n"
-            for k, v in pairs(WOWUP.updateAddonsList) do
+            for k, v in pairs(WOWUP_DATA.updateAddonsList) do
                 if type(v) == "table" then
                     local addonLine = k .. ": "-- add AddonName
                     addonLine = addonLine .. WOWUP.CreateRGBToHex(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b) .. (v[1] and v[1] or " ") .. "|r " -- current version

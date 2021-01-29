@@ -1,4 +1,4 @@
-## Interface: 90001
+## Interface: 90002
 ## Title: Addon Update Notifications (by WowUp)
 ## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori
@@ -18,7 +18,6 @@ locals/deDE.lua
 locals/ruRU.lua
 locals/itIT.lua
 
-data.lua
 util.lua
 ldbicon.lua
 config.lua
