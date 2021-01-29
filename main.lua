@@ -2,6 +2,8 @@ local addonName, WOWUP = ...
 local L = WOWUP.L
 local CountTable = WOWUP.CountTable
 
+WOWUP_DATA = WOWUP_DATA or {}
+
 local function frame_OnEvent(self, event, ...)
     -- init addon
     WOWUP.SetUpSettings()
@@ -12,7 +14,6 @@ local function frame_OnEvent(self, event, ...)
     local header = WOWUP.CreateRGBToHexHeader(r, g, b)
 
     if WowUpAddonInformation.showChatNotification then
-        print(WOWUP_DATA.updateAddonsList, availableAddonUpdates)
         if availableAddonUpdates > 0 then
             DEFAULT_CHAT_FRAME:AddMessage(header .. ": " .. message)
             if WowUpAddonInformation.showChatNotificationList and WOWUP_DATA.updateAddonsList then

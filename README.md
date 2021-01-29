@@ -9,6 +9,3 @@ without an addon manager that supports this feature. Managers that are known to
 support this:
   - [WowUp application](https://wowup.io/)
 
-## Internal workings
-The addon manager modifies `data.lua` with the required data, which is then
-made available to the addon once it's (re)loaded in World of Warcraft

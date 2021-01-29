@@ -2,6 +2,8 @@ local _, WOWUP = ...
 WOWUP.L = LibStub("AceLocale-3.0"):GetLocale("WOWUP")
 local L = WOWUP.L
 
+WOWUP_DATA = WOWUP_DATA or {}
+
 -- functions
 local function newCheckbox(optionName, label, description, onClick, parent)
     local check = CreateFrame("CheckButton", "WowUpAddon" .. optionName, parent, "InterfaceOptionsCheckButtonTemplate")

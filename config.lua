@@ -2,6 +2,8 @@ local addonName, WOWUP = ...
 local L = WOWUP.L
 local newCheckbox = WOWUP.newCheckbox
 
+WOWUP_DATA = WOWUP_DATA or {}
+
 -- default settings
 local WowUpOptions = {
     showPopupNotification = true,
