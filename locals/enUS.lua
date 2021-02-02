@@ -11,3 +11,4 @@ L["Click to open settings"] = true
 L["Show a list of all addons to be updated in a popup notification"] = true
 L["Show a list of all addons to be updated in a chat message"] = true
 L["Show Minimap icon"] = true
+L["Data addon is missing"] = true

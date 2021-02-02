@@ -5,6 +5,11 @@ local CountTable = WOWUP.CountTable
 WOWUP_DATA = WOWUP_DATA or {}
 
 local function frame_OnEvent(self, event, ...)
+    -- check if data addon is loaded
+    if not IsAddOnLoaded("wowup_data_addon") then
+        DEFAULT_CHAT_FRAME:AddMessage(WOWUP.CreateRGBToHexHeader(232/255,205/255,134/255) .. ": " .. L["Data addon is missing"])
+        return
+    end
     -- init addon
     WOWUP.SetUpSettings()
 
@@ -48,7 +53,7 @@ local function frame_OnEvent(self, event, ...)
         else
             data.subText = message
         end
-        
+
         StaticPopup_Show("WowUp_ShowUpdatesAvailable", nil, nil, data)
     end
 end
@@ -71,4 +76,3 @@ StaticPopupDialogs["WowUp_ShowUpdatesAvailable"] = {
         self.SubText:SetTextColor(1, 1, 1)
     end,
 }
-

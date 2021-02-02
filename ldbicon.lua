@@ -10,7 +10,7 @@ end
 local function OnEnter(self)
     local r, g, b, row = unpack(WOWUP_DATA.addonManagerColorRGB)
     local tooltip = WOWUP.LibQTip:Acquire(addonName .. "Tooltip", 5)
-    self.tooltip = tooltip 
+    self.tooltip = tooltip
 
     local header = WOWUP.CreateRGBToHexHeader(r, g, b)
     local availableAddonUpdates = CountTable(WOWUP_DATA.updateAddonsList)
@@ -45,26 +45,27 @@ local function OnEnter(self)
     tooltip:SmartAnchorTo(self)
     tooltip:Show()
 end
-    
+
 local function OnLeave(self)
     WOWUP.LibQTip:Release(self.tooltip)
     self.tooltip = nil
 end
 
-local function createMinimapIcon() 
+local function createMinimapIcon()
     if WOWUP.icon and WowUpAddonInformation.showMinimapIcon then
         if not WowUpAddonInformationLDBIconDB then WowUpAddonInformationLDBIconDB = {} end
 
-        local plugin = LibStub("LibDataBroker-1.1"):NewDataObject(addonName, {
+        WOWUP.minimapIcon = LibStub("LibDataBroker-1.1"):NewDataObject(addonName, {
             type = "data source",
             text = "",
             icon = WOWUP_DATA.icon and WOWUP_DATA.icon or "Interface/AddOns/WowUp/textures/ldbicon",
         })
-        plugin.OnClick = OnClick
-        plugin.OnEnter = OnEnter
-        plugin.OnLeave = OnLeave
+        WOWUP.minimapIcon.OnClick = OnClick
+        WOWUP.minimapIcon.OnEnter = OnEnter
+        WOWUP.minimapIcon.OnLeave = OnLeave
 
-        WOWUP.icon:Register(addonName, plugin, WowUpAddonInformationLDBIconDB)
+
+        WOWUP.icon:Register(addonName, WOWUP.minimapIcon, WowUpAddonInformationLDBIconDB)
     end
 end
 WOWUP.createMinimapIcon = createMinimapIcon
