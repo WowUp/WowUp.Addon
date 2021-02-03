@@ -3,7 +3,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("WOWUP", "itIT")
 if not L then return end
 
 L["Notification"] = "Notifica"
-L["You have 1 addon to be updated"] = "Hai 1 addon da aggiornare"
+L["You have %d addon to be updated"] = "Hai %d addon da aggiornare"
 L["You have %d addons to be updated"] = "Hai %d addons da aggiornare"
 L["All addons are up-to-date"] = "Tutti gli addons sono aggiornati"
 L["Show a popup with a notification after loading when updates are available"] = "Mostra un popup di notifica quando sono disponibili degli aggiornamenti (dopo il Login)"
