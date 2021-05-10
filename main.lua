@@ -69,7 +69,7 @@ StaticPopupDialogs["WowUp_ShowUpdatesAvailable"] = {
     timeout = 0,
     whileDead = false,
     hideOnEscape = true,
-    preferredIndex = 3,
+    preferredIndex = 4,
     OnShow = function(self)
         self.text:SetText(self.data.Text)
         self.SubText:SetText(self.data.subText)
