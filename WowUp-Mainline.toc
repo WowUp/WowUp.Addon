@@ -2,7 +2,7 @@
 ## Title: Addon Update Notifications
 ## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori, WowUp
-## Version: 1.0.0
+## Version: 1.0.3
 ## DefaultState: enabled
 ## SavedVariables: WowUpAddonInformation, WowUpAddonInformationLDBIconDB
 
