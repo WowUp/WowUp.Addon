@@ -1,0 +1,24 @@
+## Interface: 20501
+## Title: Addon Update Notifications
+## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
+## Author: Linaori, WowUp
+## Version: 1.0.3
+## DefaultState: enabled
+## SavedVariables: WowUpAddonInformation, WowUpAddonInformationLDBIconDB
+
+libs/LibStub/LibStub.lua
+libs/CallbackHandler-1.0/CallbackHandler-1.0.lua
+libs/LibQTip-1.0/LibQTip-1.0.lua
+libs/LibDataBroker-1.1/LibDataBroker-1.1.lua
+libs/LibDBIcon-1.0/LibDBIcon-1.0.lua
+libs/AceLocale-3.0/AceLocale-3.0.lua
+
+locals/enUS.lua
+locals/deDE.lua
+locals/ruRU.lua
+locals/itIT.lua
+
+util.lua
+ldbicon.lua
+config.lua
+main.lua
