@@ -1,8 +1,10 @@
-## Interface: 11401
+## Interface: 90200
+## Interface-Classic: 11402
+## Interface-BCC: 20504
 ## Title: Addon Update Notifications
 ## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori, WowUp
-## Version: 1.0.8
+## Version: @project-version@
 ## DefaultState: enabled
 ## SavedVariables: WowUpAddonInformation, WowUpAddonInformationLDBIconDB
 

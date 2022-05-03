@@ -1,0 +1,6 @@
+package-as: WowUp
+enable-toc-creation: yes
+ignore:
+    - .previews
+    - AddonManagers.md
+    - README.md
