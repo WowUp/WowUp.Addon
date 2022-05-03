@@ -1,4 +1,4 @@
-## Interface: 90105
+## Interface: 90200
 ## Title: Addon Update Notifications
 ## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori, WowUp
