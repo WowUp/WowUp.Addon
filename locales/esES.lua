@@ -1,5 +1,6 @@
 -- esES localization
-local L = LibStub("AceLocale-3.0"):NewLocale("WOWUP", "esES", true, true)
+local L = LibStub("AceLocale-3.0"):NewLocale("WOWUP", "esES")
+if not L then return end
 
 -- Nota al traductor: La interfaz del juego utiliza Addon para los Complementos/Accesorios
 --      por tanto, el traductor original ha decidido utilizar la misma palabra para así

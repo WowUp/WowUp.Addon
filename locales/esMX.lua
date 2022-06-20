@@ -1,5 +1,6 @@
 -- esMX localization
-local L = LibStub("AceLocale-3.0"):NewLocale("WOWUP", "esMX", true, true)
+local L = LibStub("AceLocale-3.0"):NewLocale("WOWUP", "esMX")
+if not L then return end
 
 -- Nota al traductor: La interfaz del juego utiliza Accesorio para los Add-Ons/Complementos
 --      por tanto, el traductor original ha decidido usar la misma palabra usada para
