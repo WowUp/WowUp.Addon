@@ -19,6 +19,8 @@ locales/enUS.lua
 locales/deDE.lua
 locales/ruRU.lua
 locales/itIT.lua
+locales/esES.lua
+locales/esMX.lua
 
 util.lua
 ldbicon.lua
