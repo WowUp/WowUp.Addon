@@ -1,6 +1,8 @@
 name: Package and release
 on:
     push:
+        branches:
+            - main
         tags:
             - '**'
 jobs:
