@@ -3,8 +3,7 @@ local L = WOWUP.L
 local CountTable = WOWUP.CountTable
 
 local function OnClick()
-    InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
-    InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
+    Settings.OpenToCategory(addonName)
 end
 
 local function OnEnter(self)
@@ -63,7 +62,6 @@ local function createMinimapIcon()
         WOWUP.minimapIcon.OnClick = OnClick
         WOWUP.minimapIcon.OnEnter = OnEnter
         WOWUP.minimapIcon.OnLeave = OnLeave
-
 
         WOWUP.icon:Register(addonName, WOWUP.minimapIcon, WowUpAddonInformationLDBIconDB)
     end

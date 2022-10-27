@@ -34,7 +34,9 @@ local function SetUpSettings()
     setOptions()
 
     local MainFrame = CreateFrame("Frame", nil, InterfaceOptionsFramePanelContainer)
-    MainFrame.name = addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL
+
+    local category = Settings.RegisterCanvasLayoutCategory(MainFrame, addonName)
+    Settings.RegisterAddOnCategory(category)
 
     MainFrame.title = MainFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
     MainFrame.title:SetPoint("TOPLEFT", 16, -16)
@@ -91,21 +93,18 @@ local function SetUpSettings()
     )
     MainFrame.MinimapIconCheckbox:SetChecked(WowUpAddonInformation.showMinimapIcon)
     MainFrame.MinimapIconCheckbox:SetPoint("TOPLEFT", MainFrame.chatNotificationListCheckbox, "BOTTOMLEFT", -20, -8)
-
-    InterfaceOptions_AddCategory(MainFrame)
+    MainFrame.MinimapIconCheckbox:Hide()
 
     -- create slash commands
     if WOWUP_DATA.addonManagerNameSlashCommand then
         _G["SLASH_WOWUP1"] = WOWUP_DATA.addonManagerNameSlashCommand
 
         SlashCmdList["WOWUP"] = function()
-            -- need to call it twice, due to a blizzard bug
-            InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
-            InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
+            Settings.OpenToCategory(addonName)
         end
     end
 
     -- create minimap icon
-    WOWUP.createMinimapIcon()
+    --WOWUP.createMinimapIcon()
 end
 WOWUP.SetUpSettings = SetUpSettings

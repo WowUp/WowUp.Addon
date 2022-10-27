@@ -20,7 +20,6 @@ local function newCheckbox(optionName, label, description, onClick, parent)
     check.label:SetText(label)
     check.tooltipText = label
     check.tooltipRequirement = description
-    check.label:SetWidth(InterfaceOptionsFramePanelContainer:GetWidth() - 50)
 
     return check
 end
