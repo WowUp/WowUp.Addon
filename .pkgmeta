@@ -1,4 +1,5 @@
 package-as: WowUp
+enable-toc-creation: yes
 
 ignore:
     - .github
