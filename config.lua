@@ -35,8 +35,11 @@ local function SetUpSettings()
 
     local MainFrame = CreateFrame("Frame", nil, InterfaceOptionsFramePanelContainer)
 
-    local category = Settings.RegisterCanvasLayoutCategory(MainFrame, addonName)
-    Settings.RegisterAddOnCategory(category)
+    if Settings then
+        Settings.RegisterAddOnCategory(Settings.RegisterCanvasLayoutCategory(MainFrame, addonName))
+    else
+        MainFrame.name = addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL
+    end
 
     MainFrame.title = MainFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
     MainFrame.title:SetPoint("TOPLEFT", 16, -16)
@@ -77,7 +80,7 @@ local function SetUpSettings()
     MainFrame.MinimapIconCheckbox = newCheckbox("Option5",
             L["Show Minimap icon"],
             "",
-            function(self, value)
+            function(_, value)
                 WowUpAddonInformation.showMinimapIcon = value
                 if value then
                     if not WOWUP.icon:IsRegistered(addonName) then
@@ -100,7 +103,12 @@ local function SetUpSettings()
         _G["SLASH_WOWUP1"] = WOWUP_DATA.addonManagerNameSlashCommand
 
         SlashCmdList["WOWUP"] = function()
-            Settings.OpenToCategory(addonName)
+            if settings then
+                Settings.OpenToCategory(addonName)
+            else
+                InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
+                InterfaceOptionsFrame_OpenToCategory(addonName .. " " .. COMMUNITIES_NOTIFICATION_SETTINGS_DIALOG_SETTINGS_LABEL)
+            end
         end
     end
 
