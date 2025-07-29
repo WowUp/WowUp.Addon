@@ -1,7 +1,8 @@
-## Interface: 110002
+## Interface: 110107
 ## Interface-Classic: 11503
 ## Interface-Wrath: 30403
 ## Interface-Cata: 40400
+## Interface-Mists: 50500
 ## Title: Addon Update Notifications
 ## Notes: Receive notifications from an addon manager after starting the game or reloading your interface
 ## Author: Linaori, WowUp
