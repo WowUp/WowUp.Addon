@@ -1,4 +1,4 @@
-## Interface: 110107
+## Interface: 110200
 ## Interface-Classic: 11503
 ## Interface-Wrath: 30403
 ## Interface-Cata: 40400
