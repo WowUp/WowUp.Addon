@@ -71,7 +71,11 @@ StaticPopupDialogs["WowUp_ShowUpdatesAvailable"] = {
     hideOnEscape = true,
     preferredIndex = 4,
     OnShow = function(self)
-        self.Text:SetText(self.data.Text)
+        if self.text then
+            self.text:SetText(self.data.Text)
+        else
+            self.Text:SetText(self.data.Text)
+        end
         self.SubText:SetText(self.data.subText)
         self.SubText:SetTextColor(1, 1, 1)
     end,
