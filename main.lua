@@ -24,7 +24,7 @@ local function frame_OnEvent(self, event, ...)
             if WowUpAddonInformation.showChatNotificationList and WOWUP_DATA.updateAddonsList then
                 for k, v in pairs(WOWUP_DATA.updateAddonsList) do
                     if type(v) == "table" then
-                        local addonLine = k .. ": "-- add AddonName
+                        local addonLine = WOWUP.DecodeHTMLEntities(k) .. ": " -- add AddonName
                         addonLine = addonLine .. WOWUP.CreateRGBToHex(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b) .. (v[1] and v[1] or " ") .. "|r " -- current version
                         addonLine = addonLine .. WOWUP.CreateRGBToHex(r, g, b) .. "-> " .. (v[2] and v[2] or " ") .. "|r "
                         DEFAULT_CHAT_FRAME:AddMessage(addonLine)
@@ -43,7 +43,7 @@ local function frame_OnEvent(self, event, ...)
             local addonUpdateList = "\n\n"
             for k, v in pairs(WOWUP_DATA.updateAddonsList) do
                 if type(v) == "table" then
-                    local addonLine = k .. ": "-- add AddonName
+                    local addonLine = WOWUP.DecodeHTMLEntities(k) .. ": " -- add AddonName
                     addonLine = addonLine .. WOWUP.CreateRGBToHex(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b) .. (v[1] and v[1] or " ") .. "|r " -- current version
                     addonLine = addonLine .. WOWUP.CreateRGBToHex(r, g, b) .. "-> " .. (v[2] and v[2] or " ") .. "|r "
                     addonUpdateList = addonUpdateList .. addonLine .. "\n"

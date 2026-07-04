@@ -41,6 +41,30 @@ local function CreateRGBToHex(r, g, b)
 end
 WOWUP.CreateRGBToHex = CreateRGBToHex
 
+local function DecodeHTMLEntities(str)
+    if type(str) ~= "string" then return str end
+    -- named entities
+    str = str:gsub("&amp;",   "&")
+    str = str:gsub("&lt;",    "<")
+    str = str:gsub("&gt;",    ">")
+    str = str:gsub("&quot;",  '"')
+    str = str:gsub("&apos;",  "'")
+    str = str:gsub("&#39;",   "'")
+    str = str:gsub("&nbsp;",  " ")
+    str = str:gsub("&ndash;", "–")
+    str = str:gsub("&mdash;", "—")
+    -- decimal numeric entities  &#123;
+    str = str:gsub("&#(%d+);", function(n)
+        return string.char(tonumber(n))
+    end)
+    -- hex numeric entities  &#x1F;
+    str = str:gsub("&#x(%x+);", function(h)
+        return string.char(tonumber(h, 16))
+    end)
+    return str
+end
+WOWUP.DecodeHTMLEntities = DecodeHTMLEntities
+
 local function CountTable(T)
     local c = 0
     if T ~= nil and type(T) == "table" then
